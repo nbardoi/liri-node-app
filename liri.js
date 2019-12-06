@@ -56,11 +56,12 @@ function concertInfo(input) {
 
                 var dateTime = new Date(concerts[i].datetime);
                 var dateOfEvent = moment.utc(dateTime).format('MM/DD/YYYY')
-
+                
+                console.log("\n------------------CONCERT-------------------")
                 console.log("Venue Name: " + concerts[i].venue.name);
-                console.log("\nVenue Location: " + rconcerts[i].venue.city);
-                console.log("\nDate of the Event: " + dateOfEvent);
-                console.log("-------------------------------------")
+                console.log("Venue Location: " + concerts[i].venue.city);
+                console.log("Date of the Event: " + dateOfEvent);
+                console.log("--------------------------------------------\n")
             }
     })
     
@@ -84,11 +85,12 @@ function spotifyInfo(input) {
 
             for (var i = 0; i < songs.length; i++) {
 
+            console.log("\n--------------------SONG--------------------")
             console.log("Artist(s): " +  songs[i].artists[0].name)
-            console.log("\nSong Name: " + songs[i].name)
-            console.log("\nPreview Song: " + songs[i].preview_url)
-            console.log("\nAlbum: " + songs[i].album.name)
-            console.log("-------------------------------------")
+            console.log("Song Name: " + songs[i].name)
+            console.log("Preview Song: " + songs[i].preview_url)
+            console.log("Album: " + songs[i].album.name)
+            console.log("--------------------------------------------\n")
         }
     })
 
@@ -116,15 +118,16 @@ function movieInfo(input) {
 
         var movieInfo = response.data;
 
-        console.log("\nTitle: " + movieInfo.Title);
-        console.log("\nRelease Year: " + movieInfo.Year);
-        console.log("\nRating: " + movieInfo.imdbRating);
-        console.log("\nRotten Tomatoes Rating: " + movieInfo.Ratings[1].Value);
-        console.log("\nCountry of Production: " + movieInfo.Country);
-        console.log("\nLanguage: " + movieInfo.Language);
-        console.log("\nPlot: " + movieInfo.Plot);
-        console.log("\nActors: " + movieInfo.Actors);
-        console.log("-------------------------------------")
+        console.log("\n--------------------MOVIE--------------------")
+        console.log("Title: " + movieInfo.Title);
+        console.log("Release Year: " + movieInfo.Year);
+        console.log("Rating: " + movieInfo.imdbRating);
+        console.log("Rotten Tomatoes Rating: " + movieInfo.Ratings[1].Value);
+        console.log("Country of Production: " + movieInfo.Country);
+        console.log("Language: " + movieInfo.Language);
+        console.log("Actors: " + movieInfo.Actors);
+        console.log("Plot: " + movieInfo.Plot);
+        console.log("---------------------------------------------\n")
     })
 
     .catch(function(err) {
