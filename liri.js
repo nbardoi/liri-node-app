@@ -122,7 +122,8 @@ function movieInfo(input) {
         console.log("\nRotten Tomatoes Rating: " + movieInfo.Ratings[1].Value);
         console.log("\nCountry of Production: " + movieInfo.Country);
         console.log("\nLanguage: " + movieInfo.Language);
-        console.log("\nPlot: " + movieInfo.Plot)
+        console.log("\nPlot: " + movieInfo.Plot);
+        console.log("\nActors: " + movieInfo.Actors);
         console.log("-------------------------------------")
     })
 
