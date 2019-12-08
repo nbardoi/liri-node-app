@@ -80,7 +80,7 @@ The LIRI is designed to produce search results based on the following commands a
 In addition to logging the data to the terminal/bash window, the data will output to the `log.txt` file without overwriting the contents of the file each time a command is run.
 - - -
 
-### **Technologies Used**
+### **Built With:**
 - Node.js
 - JavaScript
 - Bands In Town API (via axios npm module)
