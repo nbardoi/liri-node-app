@@ -35,7 +35,7 @@ function userInputs(command, input) {
         break;
 
         default: 
-        console.log("Invalid Option. Please type any of the following options: \nconcert-this \nspotify-this-song \nmovie-this \ndo-what-it-says");
+        console.log("Invalid Option. Please type any of the following options: \nconcert-this \nspotify-this-song \nmovie-this \ndo-what-it-says\n");
     };
 };
 
@@ -52,16 +52,27 @@ function concertInfo(input) {
 
         var concerts = response.data;
 
+        console.log("\n------------------CONCERT INFO for " + concerts[0].lineup[0] + "-------------------")
+        fs.appendFileSync("log.txt", "\n------------------CONCERT INFO for " + concerts[0].lineup[0] + "-------------------")
+
             for (var i = 0; i < concerts.length; i++) {
 
                 var dateTime = new Date(concerts[i].datetime);
-                var dateOfEvent = moment.utc(dateTime).format('MM/DD/YYYY')
+                var dateOfEvent = moment.utc(dateTime).format('MM/DD/YYYY');
                 
-                console.log("\n------------------CONCERT-------------------")
+                console.log("\n"); 
+                console.log(i);
                 console.log("Venue Name: " + concerts[i].venue.name);
                 console.log("Venue Location: " + concerts[i].venue.city);
                 console.log("Date of the Event: " + dateOfEvent);
-                console.log("--------------------------------------------\n")
+                console.log("--------------------------------------------");
+
+                fs.appendFileSync("log.txt", "\n");
+                fs.appendFileSync("log.txt", "\n" + i);
+                fs.appendFileSync("log.txt", "\nVenue Name: " + concerts[i].venue.name);
+                fs.appendFileSync("log.txt", "\nVenue Location: " + concerts[i].venue.city);
+                fs.appendFileSync("log.txt", "\nDate of the Event: " + dateOfEvent);
+                fs.appendFileSync("log.txt", "\n--------------------------------------------");
             }
     })
     
@@ -83,14 +94,26 @@ function spotifyInfo(input) {
 
         var songs = response.tracks.items;
 
+        console.log("\n--------------------SONG INFO for " + input + "--------------------");
+        fs.appendFileSync("log.txt", "\n--------------------SONG INFO for " + input + "--------------------")
+        
             for (var i = 0; i < songs.length; i++) {
 
-            console.log("\n--------------------SONG--------------------")
-            console.log("Artist(s): " +  songs[i].artists[0].name)
-            console.log("Song Name: " + songs[i].name)
-            console.log("Preview Song: " + songs[i].preview_url)
-            console.log("Album: " + songs[i].album.name)
-            console.log("--------------------------------------------\n")
+            console.log("\n"); 
+            console.log(i);
+            console.log("Artist(s): " +  songs[i].artists[0].name);
+            console.log("Song Name: " + songs[i].name);
+            console.log("Preview Song: " + songs[i].preview_url);
+            console.log("Album: " + songs[i].album.name);
+            console.log("--------------------------------------------");
+
+            fs.appendFileSync("log.txt", "\n"); 
+            fs.appendFileSync("log.txt", "\n" + i);
+            fs.appendFileSync("log.txt", "\nArtist(s): " +  songs[i].artists[0].name)
+            fs.appendFileSync("log.txt", "\nSong Name: " + songs[i].name)
+            fs.appendFileSync("log.txt", "\nPreview Song: " + songs[i].preview_url)
+            fs.appendFileSync("log.txt", "\nAlbum: " + songs[i].album.name)
+            fs.appendFileSync("log.txt", "\n--------------------------------------------")
         }
     })
 
@@ -118,7 +141,8 @@ function movieInfo(input) {
 
         var movieInfo = response.data;
 
-        console.log("\n--------------------MOVIE--------------------")
+        console.log("\n");
+        console.log("--------------------MOVIE INFO--------------------")
         console.log("Title: " + movieInfo.Title);
         console.log("Release Year: " + movieInfo.Year);
         console.log("Rating: " + movieInfo.imdbRating);
@@ -127,7 +151,19 @@ function movieInfo(input) {
         console.log("Language: " + movieInfo.Language);
         console.log("Actors: " + movieInfo.Actors);
         console.log("Plot: " + movieInfo.Plot);
-        console.log("---------------------------------------------\n")
+        console.log("---------------------------------------------")
+
+        fs.appendFileSync("log.txt", "\n");
+        fs.appendFileSync("log.txt", "\n--------------------MOVIE INFO--------------------")
+        fs.appendFileSync("log.txt", "\nTitle: " + movieInfo.Title);
+        fs.appendFileSync("log.txt", "\nRelease Year: " + movieInfo.Year);
+        fs.appendFileSync("log.txt", "\nRating: " + movieInfo.imdbRating);
+        fs.appendFileSync("log.txt", "\nRotten Tomatoes Rating: " + movieInfo.Ratings[1].Value);
+        fs.appendFileSync("log.txt", "\nCountry of Production: " + movieInfo.Country);
+        fs.appendFileSync("log.txt", "\nLanguage: " + movieInfo.Language);
+        fs.appendFileSync("log.txt", "\nActors: " + movieInfo.Actors);
+        fs.appendFileSync("log.txt", "\nPlot: " + movieInfo.Plot);
+        fs.appendFileSync("log.txt", "\n---------------------------------------------")
     })
 
     .catch(function(err) {
