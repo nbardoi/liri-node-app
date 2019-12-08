@@ -42,7 +42,7 @@ The LIRI is designed to produce search results based on the following commands a
      * Venue location
      * Date of the Event (use moment to format this as "MM/DD/YYYY")
 
-![](concert-this.gif)
+![](GIFs/concert-this.gif)
 
 2. `node liri.js spotify-this-song '<song name here>'`
    * This will show the following information about the song in the terminal/bash. If no song is provided then the program will output data for "The Sign" by Ace of Base.
@@ -51,6 +51,8 @@ The LIRI is designed to produce search results based on the following commands a
      * The song's name
      * A preview link of the song from Spotify
      * The album that the song is from
+
+![](GIFs/spotify-this-song.gif)
 
 3. `node liri.js movie-this '<movie name here>'`
    * This will show the following information about the movie in the terminal/bash window. If no song is provided then the program will output data for the movie 'Mr. Nobody.'.
@@ -64,10 +66,16 @@ The LIRI is designed to produce search results based on the following commands a
        * Plot of the movie.
        * Actors in the movie.
 
+![](GIFs/movie-this.gif)
+
 4. `node liri.js do-what-it-says`
    * Using the fs Node package, LIRI will take the text inside of random.txt and then use it to run one of LIRI’s commands.
 
+![](GIFs/do-what-it-says.gif)
+
 5. If the user does not correctly enter one of the 4 functions listed above a default message will be logged to the terminal/bash window.
+
+![](GIFs/dafault.gif)
 
 In addition to logging the data to the terminal/bash window, the data will output to the `log.txt` file without overwriting the contents of the file each time a command is run.
 - - -
