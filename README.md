@@ -75,7 +75,7 @@ The LIRI is designed to produce search results based on the following commands a
 
 5. If the user does not correctly enter one of the 4 functions listed above a default message will be logged to the terminal/bash window.
 
-![](GIFs/dafault.gif)
+![](GIFs/default.gif)
 
 In addition to logging the data to the terminal/bash window, the data will output to the `log.txt` file without overwriting the contents of the file each time a command is run.
 - - -
